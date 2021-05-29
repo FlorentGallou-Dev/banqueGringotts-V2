@@ -1,63 +1,56 @@
-<!doctype html>
-<html class="no-js" lang="fr">
+<?php
+    session_start();
+    if(!isset($_SESSION["customer"])) {
+        header("Location:login.php");
+        exit;
+    }
+    //connexion a la BDD
+    require 'model/connexion.php';
+    require "model/accountModel.php";
+    $accounts = getAccounts($bdd, $_SESSION["customer"]["id_cust"]);
+    var_dump($accounts);
+    include("layout/startPage.php");
+?>
+        <link rel="stylesheet" href="public/css/index.css">
+    </head>
+    <body>
+    <?php
+        include("layout/header.php");
+        include("layout/nav.php");
+    ?>
 
-<head>
-    <meta charset="utf-8">
-    <title>Banque de Gringotts</title>
-    <meta name="description" content="Entre ici étranger si tel est ton désir. Mais à l'appât du gain, renonce à obéir. Car celui qui veut prendre et ne veut pas gagner, de sa cupidité, le prix devra payer. Si tu veux t'emparer, en ce lieu souterrain, d'un trésor convoité qui jamais ne fut tien. Voleur tu trouveras, en guise de richesse, le juste châtiment de ta folle hardiesse.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <main id="main" class="container my-5">
+        <div class="row">
+            <h1 class="color-sombre col-12 mb-5">Vos comptes bancaires</h1>
+            <section class="container col-12 row mx-auto" id="accountsContainer">
+                <?php foreach($accounts as $account): ?>
+                    <?php $regexPatternLink = '/\s/'; ?>
+                    <div class='col-12 col-lg-4 my-3 mx-auto'>
+                        <div class='card mx-1'>
+                            <div class='card-body'>
+                                <h5 class='card-title'><?php echo $account["acc_type"]; ?></h5>
+                                <p class='card-text'>N° <?php echo $account["acc_number"]; ?></p>
+                            </div>
+                            <ul class='list-group list-group-flush'>
+                                <li class='list-group-item owner'> Propriétaire : <strong><?php echo $_SESSION["customer"]['cust_last_name'];?> <?php echo $_SESSION["customer"]['cust_first_name']; ?></strong></li>
+                                <li class='list-group-item balance'> Solde : <?php echo number_format($account["acc_balance"], 0, ',', ' '); ?> Gallons </li>
+                                <li class='list-group-item balance'> Dernière opération : <br/>  => - <?php echo $account["mov_title"]; ?> : <?php echo number_format($account["mov_amount"], 0, null, ' '); ?> G</li>
+                            </ul>
+                            <div class='card-body text-center'>
+                                <a href='account_page.php?account=<?php echo $account["id_acc"]; ?>' class='btn btn-gold'>Consulter</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach ?>
+            </section>
+        </div>
+    </main>
 
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="icon" href="favicon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!--BOOTSTRAP CSS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
-    <!--WEBFONTS-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Poiret+One&display=swap" rel="stylesheet">
-    <!--FONTAWESOME-->
-    <script src="https://kit.fontawesome.com/1219d1b540.js" crossorigin="anonymous"></script>
-
-    <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-
-    <?php include("components/home.php"); ?>
-
-
-    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function() {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('set', 'anonymizeIp', true);
-        ga('set', 'transport', 'beacon');
-        ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
-    <!--BOOSTRAP SCRIPTS-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    <!-- <script src="js/index.js"></script> -->
-</body>
+    <?php
+        include("layout/footer.php");
+        include("layout/endPage.php");
+    ?>
+    <script src="public/js/index.js"></script>
+    </body>
 
 </html>

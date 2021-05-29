@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded',function(){
             console.log("Rien ne se passe...");
         }
     };
-    httpRequest.open('GET', 'apis/currencies.json', true);
+    httpRequest.open('GET', 'public/apis/currencies.json', true);
     httpRequest.send();
 });
 

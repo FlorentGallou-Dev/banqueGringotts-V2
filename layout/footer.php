@@ -7,28 +7,28 @@
             <h3 class="text-center color-gold mb-5">Sitemap</h3>
             <ul class="list-group list-group-flush text-uppercase">
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link active" aria-current="page" href="index.html">Mes comptes</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Mes comptes</a>
                 </li>
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link" href="close.html">Clore</a>
+                    <a class="nav-link" href="close.php">Clore</a>
                 </li>
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link" href="deposit.html">Dépos</a>
+                    <a class="nav-link" href="deposit.php">Dépos</a>
                 </li>
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link" href="withdraw.html">Retrait</a>
+                    <a class="nav-link" href="withdraw.php">Retrait</a>
                 </li>
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link" href="transfer.html">Transfert</a>
+                    <a class="nav-link" href="transfer.php">Transfert</a>
                 </li>
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link" href="statistics.html">Statistiques</a>
+                    <a class="nav-link" href="statistics.php">Statistiques</a>
                 </li>
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link" href="blog.html">Actualités</a>
+                    <a class="nav-link" href="blog.php">Actualités</a>
                 </li>
                 <li class="list-group-item bg-sombre">
-                    <a class="nav-link" href="legals.html">Mentions Légales</a>
+                    <a class="nav-link" href="legals.php">Mentions Légales</a>
                 </li>
             </ul>
         </article>
