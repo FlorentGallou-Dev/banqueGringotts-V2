@@ -7,8 +7,9 @@
     //connexion a la BDD
     require 'model/connexion.php';
     require "model/accountModel.php";
+
     $accounts = getAccounts($bdd, $_SESSION["customer"]["id_cust"]);
-    var_dump($accounts);
+    
     include("layout/startPage.php");
 ?>
         <link rel="stylesheet" href="public/css/index.css">

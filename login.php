@@ -44,7 +44,7 @@
                 <input type="password" name="cust_password" id="cust_password" class="form-control">
             </div>
             <div class="my-5 text-center">
-                <input type="submit" name="connexion" class="btn btn-dark text-white w-25 form-control" value="Connexion">
+                <input type="submit" name="connexion" class="btn btn-dark text-white form-control" value="Connexion">
             </div>
             <div>
                 <p class="text-center">Pas encore client chez nous ?, n'hésitez-pas et <a href="subscribe.php">Devenez client</a></p>

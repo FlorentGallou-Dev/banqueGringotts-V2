@@ -64,6 +64,15 @@ a:hover{
     border-bottom: 2px solid var(--gold);
 }
 
+.borderGold{
+    border-left: 2px solid var(--gold) !important;
+    border-right: 2px solid var(--gold) !important;
+}
+
+.borderGrey{
+    border-bottom: 2px solid var(--dark) !important;
+}
+
 /*~~~~~ TOUCHPADS VIEWPORT ~~~~~*/
 @media screen and (min-width: 576px ) {
     .bg-header{

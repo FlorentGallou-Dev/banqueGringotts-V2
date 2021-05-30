@@ -84,7 +84,7 @@
                     </div>
                 </div> -->
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Soumettre</button>
+                    <button type="submit" class="btn btn-dark text-white">Soumettre</button>
                 </div>
             </form>
     </main>
