@@ -1,7 +1,7 @@
 <?php
     function getAccounts(PDO $bdd, int $idCustomer) {
         $query = $bdd->prepare(
-            "SELECT a.id_acc, a.acc_type, a.acc_number, a.acc_balance, m.mov_title, m.mov_amount, max(m.mov_date)
+            "SELECT a.id_acc, a.acc_type, a.acc_number, a.acc_balance, m.mov_title, m.mov_amount, max(m.id_move)
             FROM account AS a
             LEFT JOIN movement AS m
             ON a.id_acc = m.id_acc
