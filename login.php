@@ -1,6 +1,8 @@
 <?php
-   require 'model/connexion.php';
-   require 'model/customerModel.php';
+    require "model/entity/database.php";
+    require 'model/customerModel.php';
+
+    $bdd = DataBase::getBdd();
 
     // Si les champ email et mot de passe ont été remplis
     if(isset($_POST["cust_email"]) && isset($_POST["cust_password"])) {

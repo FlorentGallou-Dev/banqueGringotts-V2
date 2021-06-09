@@ -5,7 +5,10 @@
         exit;
     }
 
-    require 'model/connexion.php';
+    //connexion a la BDD
+    require 'model/entity/database.php';
+    $bdd = DataBase::getBdd();
+    
     require "model/accountModel.php";
 
     $singleAccount = getSingleAccount($bdd, $_GET['account']);

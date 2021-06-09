@@ -4,10 +4,10 @@
         header("Location:login.php");
         exit;
     }
-    //connexion a la BDD
-    require 'model/connexion.php';
+       
     require "model/accountModel.php";
 
-    $accounts = getAccounts($bdd, $_SESSION["customer"]["id_cust"]);
+    $accountModelInstance = new AccountModel;
+    $accounts = $accountModelInstance->getAccounts($_SESSION["customer"]["id_cust"]);
     
 require "view/indexView.php";

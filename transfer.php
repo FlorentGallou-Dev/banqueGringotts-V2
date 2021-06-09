@@ -5,4 +5,8 @@
         exit;
     }
     
+   //connexion a la BDD
+   require 'model/entity/database.php';
+   $bdd = DataBase::getBdd();
+    
 require "view/transferView.php";
