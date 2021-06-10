@@ -4,7 +4,8 @@
         header("Location:login.php");
         exit;
     }
-       
+
+    require "model/entity/customer.php";   
     require "model/accountModel.php";
 
     $accountModelInstance = new AccountModel;
