@@ -4,24 +4,9 @@
         header("Location:login.php");
         exit;
     }
+
+    //connexion a la BDD
+    require 'model/entity/database.php';
+    $bdd = DataBase::getBdd();
     
-    include("layout/startPage.php");
-?>
-        <link rel="stylesheet" href="public/css/.css">
-    </head>
-    <body>
-    <?php
-        include("layout/header.php");
-        include("layout/nav.php");
-    ?>
-
-<!-- page -->
-
-    <?php
-        include("layout/footer.php");
-        include("layout/endPage.php");
-    ?>
-    <script src="public/js/.js"></script>
-    </body>
-
-</html>
+require "view/templateView.php";

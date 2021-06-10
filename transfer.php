@@ -5,25 +5,8 @@
         exit;
     }
     
-    include("layout/startPage.php");
-?>
-        <link rel="stylesheet" href="public/css/forms.css">
-    </head>
-    <body>
-    <?php
-        include("layout/header.php");
-        include("layout/nav.php");
-    ?>
-
-
-
-    <h1>Transfert</h1>
-
-    <?php
-        include("layout/footer.php");
-        include("layout/endPage.php");
-    ?>
-    <script src="public/js/transfer.js"></script>
-    </body>
-
-</html>
+   //connexion a la BDD
+   require 'model/entity/database.php';
+   $bdd = DataBase::getBdd();
+    
+require "view/transferView.php";

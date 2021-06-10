@@ -4,9 +4,5 @@
         header("Location:login.php");
         exit;
     }
-
-   //connexion a la BDD
-   require 'model/entity/database.php';
-   $bdd = DataBase::getBdd();
     
-require "view/withdrawView.php";
+require "view/statisticsView.php";
